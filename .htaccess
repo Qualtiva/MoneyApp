@@ -1,0 +1,13 @@
+# Copyright (C) 2015 StockApp <http://qualtivacr.com>
+
+Options +FollowSymLinks
+RewriteEngine On
+
+# PHP redirect if any.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L,QSA]
+
+## Friendly URL of Articles
+RewriteRule ^cliente/(.+)/(.+)$ clienteid.php?id=$1&title=$2 [QSA]
